@@ -12,12 +12,19 @@ import "./styles/styles.css";
 function App() {
   const [usuario, setUsuario] = useState(null);
   const [mostrarAccesibilidad, setMostrarAccesibilidad] = useState(false);
+  const [mostrarUsuarioModal, setMostrarUsuarioModal] = useState(false);
   const [tamanoPagina, setTamanoPagina] = useState("1");
   const [tema, setTema] = useState("claro");
 
   //modales registro e inicio de sesión
   const [mostrarLogin, setMostrarLogin] = useState(false);
   const [mostrarRegister, setMostrarRegister] = useState(false);
+
+  useEffect(() => {
+    if (usuario) {
+      setMostrarUsuarioModal(true);
+    }
+  }, [usuario]);
 
   useEffect(() => {
     const colores =
@@ -38,7 +45,11 @@ function App() {
 
   return (
     <div className="app" style={{ zoom: tamanoPagina }}>
-      <Header usuario={usuario} onAbrirAccesibilidad={() => setMostrarAccesibilidad(true)} />
+      <Header
+        usuario={usuario}
+        onAbrirAccesibilidad={() => setMostrarAccesibilidad(true)}
+        onAbrirUsuario={() => setMostrarUsuarioModal(true)}
+      />
 
       {!usuario && (
         <div className="formulario">
@@ -66,6 +77,23 @@ function App() {
         tema={tema}
         onCambiarTema={setTema}
       />
+
+      {mostrarUsuarioModal && usuario && (
+        <div className="modal" onClick={() => setMostrarUsuarioModal(false)}>
+          <div
+            className="modal-contenido modal-usuario"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-vertical">
+              <h2>Sesión iniciada</h2>
+              <p>Usuario: {usuario.nombre}</p>
+              <button type="button" onClick={() => setMostrarUsuarioModal(false)}>
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {mostrarLogin && (
         <div className="modal" onClick={() => setMostrarLogin(false)}>

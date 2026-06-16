@@ -1,5 +1,5 @@
 
-function Header({ usuario, onAbrirAccesibilidad }) {
+function Header({ usuario, onAbrirAccesibilidad, onAbrirUsuario }) {
     return (
         <header>
             <button
@@ -13,9 +13,14 @@ function Header({ usuario, onAbrirAccesibilidad }) {
             <h1>
                 Catalogo de Autos
                 {usuario && (
-                    <span style={{ marginLeft: "10px" }}>
+                    <button
+                        className="header-usuario"
+                        onClick={onAbrirUsuario}
+                        type="button"
+                        aria-label={`Ver usuario ${usuario.nombre}`}
+                    >
                         {usuario.nombre}
-                    </span>
+                    </button>
                 )}
             </h1>
         </header>

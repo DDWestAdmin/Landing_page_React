@@ -65,6 +65,22 @@ header h1 {
   font-style: italic;
 }
 
+.header-usuario {
+  margin-left: 12px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-size: 18px;
+}
+
+.header-usuario:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 /* LOGOS */
 .logos {
   display: flex;
@@ -329,6 +345,14 @@ header h1 {
 .modal-ajustes .modal-vertical > button {
   align-self: flex-end;
   cursor: pointer;
+}
+
+.modal-usuario {
+  min-width: 320px;
+}
+
+.modal-usuario p {
+  font-size: 18px;
 }
 
 /* BOTÓN MODAL */
