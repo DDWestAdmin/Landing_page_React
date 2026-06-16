@@ -57,7 +57,7 @@ function Register({ cerrar }) {
 
   return (
     <form onSubmit={registrarUsuario}>
-      <input placeholder="Usuario" onChange={(e) => setUsuario(e.target.value)} />
+      <input placeholder="Nombre de Usuario" onChange={(e) => setUsuario(e.target.value)} />
       <input placeholder="Correo Electrónico" onChange={(e) => setCorreo(e.target.value)} />
       <input
         type="password"
