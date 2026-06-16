@@ -17,7 +17,7 @@ function Login({ setUsuario, cerrar }) {
     if (user) {
       localStorage.setItem("usuarioActivo", JSON.stringify(user));
       setUsuario(user);
-      alert("Bienvenido");
+      alert("Bienvenido "+ user.nombre);
       cerrar(); //cerrar el modal después de iniciar sesión
     } else {
       alert("Error en validar usuario, intenar de nuevo");

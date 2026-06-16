@@ -6,6 +6,11 @@ export const validarCorreo = (correo) => {
     return re.test(correo);
 };
 
+// Validador largo mínimo de nombre de usuario
+export const validarLargoNombre = (usuario) => {
+    return usuario.length >= 5;
+};
+
 // Validador de largo mínimo de contraseña
 export const largoMinimo = (password) => {
     return password.length >= 8;
