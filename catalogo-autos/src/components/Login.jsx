@@ -26,10 +26,15 @@ function Login({ setUsuario, cerrar }) {
 
   return (
     <div>
-      <input placeholder="Correo Electrónico" onChange={(e) => setCorreo(e.target.value)} />
+      <input
+        placeholder="Correo Electrónico"
+        aria-label="Correo Electrónico"
+        onChange={(e) => setCorreo(e.target.value)}
+      />
       <input
         type="password"
         placeholder="Contraseña (min.8 caracteres)"
+        aria-label="Contraseña"
         onChange={(e) => setPassword(e.target.value)}
       />
 
@@ -37,7 +42,7 @@ function Login({ setUsuario, cerrar }) {
               disabled={formularioInvalido}>
         Login
       </button>
-      <button onClick={cerrar}>Volver</button>
+      <button type="button" onClick={cerrar}>Volver</button>
     </div>
   );
 }

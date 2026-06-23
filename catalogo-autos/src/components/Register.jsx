@@ -57,41 +57,51 @@ function Register({ cerrar }) {
 
   return (
     <form onSubmit={registrarUsuario}>
-      <input placeholder="Nombre de Usuario" onChange={(e) => setUsuario(e.target.value)} />
-      <input placeholder="Correo Electrónico" onChange={(e) => setCorreo(e.target.value)} />
+      <input
+        placeholder="Nombre de Usuario"
+        aria-label="Nombre de Usuario"
+        onChange={(e) => setUsuario(e.target.value)}
+      />
+      <input
+        placeholder="Correo Electrónico"
+        aria-label="Correo Electrónico"
+        onChange={(e) => setCorreo(e.target.value)}
+      />
       <input
         type="password"
         placeholder="Contraseña (min.8 caracteres)"
+        aria-label="Contraseña"
         onChange={(e) => setPassword(e.target.value)}
       />
       <input
         type="password"
         placeholder="Confirmar contraseña"
+        aria-label="Confirmar contraseña"
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
       <div className="validaciones">
         <label>
-            <input type="checkbox" checked={correoValido} readOnly />
+            <input type="checkbox" checked={correoValido} readOnly aria-label="Correo válido" />
             Correo válido
         </label>
         <label>
-            <input type="checkbox" checked={passwordValido} readOnly />
+            <input type="checkbox" checked={passwordValido} readOnly aria-label="Contraseña mínimo 8 caracteres" />
             Contraseña mínimo 8 caracteres
         </label>
         <label>
-            <input type="checkbox" checked={mayusculaOk} readOnly />
+            <input type="checkbox" checked={mayusculaOk} readOnly aria-label="Contiene mayúscula" />
             Contiene mayúscula
         </label>    
         <label>
-            <input type="checkbox" checked={numeroOk} readOnly />   
+            <input type="checkbox" checked={numeroOk} readOnly aria-label="Contiene número" />   
             Contiene número
         </label>
         <label>
-            <input type="checkbox" checked={especialOk} readOnly />
+            <input type="checkbox" checked={especialOk} readOnly aria-label="Contiene carácter especial" />
             Contiene carácter especial
         </label>
         <label>
-            <input type="checkbox" checked={contraseñasCoinciden} readOnly />
+            <input type="checkbox" checked={contraseñasCoinciden} readOnly aria-label="Las contraseñas coinciden" />
             Las contraseñas coinciden
         </label>
       </div>
@@ -99,7 +109,7 @@ function Register({ cerrar }) {
       <button type="submit" disabled={!(formularioValido)}>
         Registrar
       </button>
-      <button onClick={cerrar}>Volver</button>
+      <button type="button" onClick={cerrar}>Volver</button>
     </form>
   );
 }

@@ -53,7 +53,11 @@ function Carrusel() {
 				>
 					{autos.map((auto) => (
 						<article className="carrusel-slide" key={auto.titulo}>
-							<img className="carrusel-imagen" src={auto.src} alt={auto.alt} />
+							<img
+								className="carrusel-imagen"
+								src={auto.src}
+								alt={`Fotografía de ${auto.titulo}`}
+							/>
 							<div className="carrusel-caption">
 								<h2>{auto.titulo}</h2>
 							</div>

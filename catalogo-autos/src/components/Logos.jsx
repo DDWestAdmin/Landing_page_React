@@ -38,7 +38,7 @@ function Logos() {
                 key={marca} 
                 className="logo"
                 onClick={() => setAutoSeleccionado(autos[marca])}>
-                    <img src={autos[marca].logo} alt={`${marca} logo`} />
+                    <img src={autos[marca].logo} alt="" />
                     {marca}
                 </div>
             ))}
