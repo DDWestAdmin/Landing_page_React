@@ -56,27 +56,31 @@ function Register({ cerrar }) {
   };
 
   return (
-    <form onSubmit={registrarUsuario}>
+    <form onSubmit={registrarUsuario} className="modal-form modal-registro-form">
       <input
         placeholder="Nombre de Usuario"
         aria-label="Nombre de Usuario"
+        value={usuario}
         onChange={(e) => setUsuario(e.target.value)}
       />
       <input
         placeholder="Correo Electrónico"
         aria-label="Correo Electrónico"
+        value={correo}
         onChange={(e) => setCorreo(e.target.value)}
       />
       <input
         type="password"
         placeholder="Contraseña (min.8 caracteres)"
         aria-label="Contraseña"
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <input
         type="password"
         placeholder="Confirmar contraseña"
         aria-label="Confirmar contraseña"
+        value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
       <div className="validaciones">
@@ -106,10 +110,14 @@ function Register({ cerrar }) {
         </label>
       </div>
 
-      <button type="submit" disabled={!(formularioValido)}>
-        Registrar
-      </button>
-      <button type="button" onClick={cerrar}>Volver</button>
+      <div className="modal-acciones-registro">
+        <button type="submit" className="boton-registrar-modal" disabled={!(formularioValido)}>
+          Registrar
+        </button>
+        <button type="button" className="boton-volver-modal" onClick={cerrar}>
+          Volver
+        </button>
+      </div>
     </form>
   );
 }

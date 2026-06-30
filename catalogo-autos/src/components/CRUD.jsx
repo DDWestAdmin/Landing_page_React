@@ -11,7 +11,7 @@ import {
     contineMayuscula,
     contieneNumero,
     contieneCaracterEspecial
-} from '../utils/Validadores';
+} from './Validadores';
 
 export default function Administrador() {
     // Línea 3: Estados encargados de la captura y control del login del Administrador.
@@ -167,16 +167,16 @@ export default function Administrador() {
         return (
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', fontFamily: 'Arial, sans-serif' }}>
                 <form onSubmit={manejarLogin} style={{ border: '1px solid #ccc', padding: '30px', borderRadius: '8px', width: '320px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)', background: '#fff' }}>
-                    <h3 style={{ textAlign: 'center', marginTop: 0, color: '#333' }}>🔑 Autenticación de Catálogo</h3>
+                    <h3 style={{ textAlign: 'center', marginTop: 0, color: '#333' }}>Autenticación de Catálogo</h3>
                     <div style={{ marginBottom: '15px' }}>
                         <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Correo Electrónico:</label>
-                        <input type="email" name="correo" required value={credenciales.correo} onChange={manageCambioLogin} placeholder="admin@correo.cl" aria-label="Correo Electrónico" style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
+                        <input type="email" name="correo" required value={credenciales.correo} onChange={manageCambioLogin} placeholder="correo eléctronico" aria-label="Correo Electrónico" style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
                     </div>
                     <div style={{ marginBottom: '20px' }}>
                         <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Contraseña:</label>
-                        <input type="password" name="clave" required value={credenciales.clave} onChange={manageCambioLogin} placeholder="Adm1n.#1str4d0r" aria-label="Contraseña" style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
+                        <input type="password" name="clave" required value={credenciales.clave} onChange={manageCambioLogin} placeholder="contraseña" aria-label="Contraseña" style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
                     </div>
-                    <button type="submit" style={{ width: '100%', padding: '10px', background: 'blue', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>Reconocer Rol e Ingresar</button>
+                    <button type="submit" style={{ width: '100%', padding: '10px', background: 'blue', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>Ingresar como Administrador</button>
                 </form>
             </div>
         );
@@ -186,23 +186,23 @@ export default function Administrador() {
     return (
         <div style={{ padding: '30px', fontFamily: 'Segoe UI, Arial, sans-serif', maxWidth: '1000px', margin: '0 auto', color: '#333' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                <h2>🛠️ Panel de Control - Modo: {usuarioAutenticado.rol}</h2>
+                <h2>Panel de Control - Modo: {usuarioAutenticado.rol}</h2>
                 <div>
-                    <span style={{ marginRight: '15px', background: '#28a745', color: 'white', padding: '6px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 'bold' }}>👤 Sesión: {usuarioAutenticado.correo}</span>
+                    <span style={{ marginRight: '15px', background: '#28a745', color: 'white', padding: '6px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 'bold' }}>Sesión: {usuarioAutenticado.correo}</span>
                     <button onClick={manejarLogout} style={{ background: 'gray', color: 'white', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer' }}>Cerrar Sesión</button>
                 </div>
             </div>
 
             {/* Monitor Auditor de límites de sesión */}
             <div style={{ padding: '12px', background: '#e9ecef', borderRadius: '6px', marginBottom: '25px', borderLeft: '5px solid blue' }}>
-                <strong>🔒 Restricciones por Sesión de Administrador: </strong> 
+                <strong>Restricciones por Sesión de Administrador: </strong> 
                 <span style={{ marginLeft: '15px' }}>Vehículos Creados: <b>{modelosAnadidosSesion} / 3</b></span>
                 <span style={{ marginLeft: '25px' }}>Vehículos Eliminados: <b>{modelosEliminadosSesion} / 2</b></span>
             </div>
 
             {/* Conexión asíncrona externa hacia la API de tu archivo de Validadores */}
             <div style={{ padding: '20px', border: '1px solid #b8daff', borderRadius: '8px', marginBottom: '30px', backgroundColor: '#e2f0fe' }}>
-                <h4 style={{ margin: '0 0 12px 0', color: '#004085' }}>🌐 Catálogo Mundial en Vivo (API de Vehículos NHTSA)</h4>
+                <h4 style={{ margin: '0 0 12px 0', color: '#004085' }}>Catálogo Mundial en Vivo (API de Vehículos NHTSA)</h4>
                 <select value={marcaSeleccionadaAPI} onChange={(e) => setMarcaSeleccionadaAPI(e.target.value)} style={{ padding: '8px', marginRight: '12px', borderRadius: '4px', border: '1px solid #ced4da' }}>
                     {['Toyota', 'Chevrolet', 'Ford', 'Honda'].map(m => <option key={m} value={m}>{m}</option>)}
                 </select>
@@ -214,7 +214,7 @@ export default function Administrador() {
                         <p style={{ margin: '0 0 10px 0', fontSize: '13px', fontWeight: 'bold', color: '#495057' }}>Sugerencias encontradas (Haz clic en un modelo para cargarlo e iniciar su registro manual):</p>
                         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                             {resultadosAPI.map((auto, i) => (
-                                <button key={i} onClick={() => importarSugerenciaAPI(auto.Model_Name)} style={{ background: '#f1f3f5', border: '1px solid #ced4da', padding: '6px 12px', borderRadius: '20px', cursor: 'pointer', fontSize: '13px' }}>📥 {auto.Model_Name}</button>
+                                <button key={i} onClick={() => importarSugerenciaAPI(auto.Model_Name)} style={{ background: '#f1f3f5', border: '1px solid #ced4da', padding: '6px 12px', borderRadius: '20px', cursor: 'pointer', fontSize: '13px' }}>{auto.Model_Name}</button>
                             ))}
                         </div>
                     </div>
@@ -223,7 +223,7 @@ export default function Administrador() {
 
             {/* Filtros locales y botón disparador del Modal */}
             <div style={{ display: 'flex', gap: '15px', marginBottom: '20px', justifyContent: 'space-between' }}>
-                <input aria-label="Filtrar catálogo" type="text" placeholder="🔎 Filtrar catálogo local por marca, año o descripción..." value={busqueda} onChange={(e) => setBusqueda(e.target.value)} style={{ padding: '10px', width: '420px', borderRadius: '4px', border: '1px solid #ced4da' }} />
+                <input aria-label="Filtrar catálogo" type="text" placeholder="Filtrar catálogo local por marca, año o descripción..." value={busqueda} onChange={(e) => setBusqueda(e.target.value)} style={{ padding: '10px', width: '420px', borderRadius: '4px', border: '1px solid #ced4da' }} />
                 <button onClick={abrirModalParaCrear} style={{ padding: '10px 20px', background: 'green', color: '#fff', border: 'none', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>➕ Agregar nuevo modelo</button>
             </div>
 

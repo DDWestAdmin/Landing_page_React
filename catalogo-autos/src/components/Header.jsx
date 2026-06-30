@@ -1,5 +1,11 @@
-
-function Header({ usuario, onAbrirAccesibilidad, onAbrirUsuario }) {
+function Header({
+    usuario,
+    onAbrirAccesibilidad,
+    onAbrirUsuario,
+    onAbrirLogin,
+    onAbrirRegister,
+    onAbrirAdmin
+}) {
     return (
         <header>
             <button
@@ -23,6 +29,31 @@ function Header({ usuario, onAbrirAccesibilidad, onAbrirUsuario }) {
                     </button>
                 )}
             </h1>
+                {!usuario && (
+                    <div className="header-acciones">
+                        <button
+                            className="header-boton header-boton-login"
+                            onClick={onAbrirLogin}
+                            type="button"
+                        >
+                            Iniciar Sesión
+                        </button>
+                        <button
+                            className="header-boton header-boton-registro"
+                            onClick={onAbrirRegister}
+                            type="button"
+                        >
+                            Registrarse
+                        </button>
+                        <button
+                            className="header-boton header-boton-admin"
+                            onClick={onAbrirAdmin}
+                            type="button"
+                        >
+                            Administrador
+                        </button>
+                    </div>
+                )}
         </header>
     );
 }

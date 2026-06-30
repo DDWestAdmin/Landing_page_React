@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Login from "./components/Login";
+import CRUD from "./components/CRUD";
 import Register from "./components/Register";
 import Logos from "./components/Logos";
 import Carrusel from "./components/Carrusel";
@@ -19,12 +20,7 @@ function App() {
   //modales registro e inicio de sesión
   const [mostrarLogin, setMostrarLogin] = useState(false);
   const [mostrarRegister, setMostrarRegister] = useState(false);
-
-  useEffect(() => {
-    if (usuario) {
-      setMostrarUsuarioModal(true);
-    }
-  }, [usuario]);
+  const [mostrarAdmin, setMostrarAdmin] = useState(false);
 
   useEffect(() => {
     const colores =
@@ -49,23 +45,10 @@ function App() {
         usuario={usuario}
         onAbrirAccesibilidad={() => setMostrarAccesibilidad(true)}
         onAbrirUsuario={() => setMostrarUsuarioModal(true)}
+        onAbrirLogin={() => setMostrarLogin(true)}
+        onAbrirRegister={() => setMostrarRegister(true)}
+        onAbrirAdmin={() => setMostrarAdmin(true)}
       />
-
-      {!usuario && (
-        <div className="formulario">
-          <button
-            className="boton-loin"
-            onClick={() => setMostrarLogin(true)}>
-              Iniciar Sesión
-          </button>
-          
-          <button
-          className="boton-register"
-          onClick={() => setMostrarRegister(true)}>
-            Registrarse
-          </button>
-        </div>
-      )}
 
       <Carrusel />
 
@@ -102,6 +85,7 @@ function App() {
             onClick={(e) => e.stopPropagation()}>
               <Login
                 setUsuario={setUsuario}
+                onLoginSuccess={() => setMostrarUsuarioModal(true)}
                 cerrar={() => setMostrarLogin(false)}
               />
           </div>
@@ -118,6 +102,17 @@ function App() {
               />
           </div>
             </div>
+      )}
+
+      {mostrarAdmin && (
+        <div className="modal" onClick={() => setMostrarAdmin(false)}>
+          <div
+            className="modal-contenido modal-crud"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <CRUD />
+          </div>
+        </div>
       )}
 
       <Logos />

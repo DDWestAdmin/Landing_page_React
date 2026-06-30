@@ -1,9 +1,9 @@
 
 const logos_marcas_permitidas = {
-    Toyota: 'public/logos/toyota.png',
-    Chevrolet: 'public/logos/chevrolet.png',
-    Ford: 'public/logos/ford.png',
-    Honda: 'public/logos/honda.png',
+    Toyota: '/logos/toyota.png',
+    Chevrolet: '/logos/chevrolet.png',
+    Ford: '/logos/ford.png',
+    Honda: '/logos/honda.png',
 };
 
 export default function FormularioModelo({ isOpen, form, manageCambioInput, saveModelo, claseModelo}) {
@@ -56,8 +56,8 @@ export default function FormularioModelo({ isOpen, form, manageCambioInput, save
             border: '1px solid black',
         }}>{logos_marcas_permitidas[form.marca] ? (
             <img 
-            src={'/${logos_marcas_permitidas[form.marca]}'}
-            alt={'Logo ${form.marca}'}
+            src={logos_marcas_permitidas[form.marca]}
+            alt={`Logo ${form.marca}`}
             style={{height: '55px', objectFit: 'contain'}}
             />
         ): (

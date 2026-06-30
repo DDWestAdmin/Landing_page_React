@@ -34,6 +34,7 @@ header {
   background-color: black;
   text-align: center;
   padding: 20px;
+  min-height: 102px;
 }
 
 .header-ajustes {
@@ -63,6 +64,41 @@ header h1 {
   color: white;
   font-size: 60px;
   font-style: italic;
+}
+
+.header-acciones {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.header-boton {
+  min-width: 132px;
+  height: 42px;
+  padding: 0 16px;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+}
+
+.header-boton-login {
+  background-color: blue;
+}
+
+.header-boton-registro {
+  background-color: green;
+}
+
+.header-boton-admin {
+  background: #ff8c00;
 }
 
 .header-usuario {
@@ -223,37 +259,11 @@ header h1 {
 
 /* FORMULARIO (Login / Register) */
 .formulario {
-  position: fixed;
-  top: 20px;
-  right: 16px;
-  z-index: 999;
-
-  display: flex;
-  gap: 0.5rem;
+  display: none;
 }
 
-/* BOTONES */
-.boton-registro,
-.boton-login {
-  width: 140px;
-  height: 42px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: white;
-  border: 1px solid black;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.boton-registro {
-  background-color: green;
-}
-
-.boton-login {
-  background-color: blue;
+.header-boton:hover {
+  filter: brightness(1.08);
 }
 
 /*  MODAL (REACT) */
@@ -285,6 +295,56 @@ header h1 {
 
   max-width: 700px;
   animation: aparecer 0.3s ease;
+}
+
+.modal-crud {
+  max-width: min(1180px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+}
+
+.modal-registro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 340px;
+}
+
+.modal-registro-form input {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.modal-acciones-registro {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.boton-registrar-modal,
+.boton-volver-modal {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.boton-registrar-modal {
+  background: #0f8f3b;
+  color: white;
+}
+
+.boton-registrar-modal:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.boton-volver-modal {
+  background: #d1d5db;
+  color: #111111;
 }
 
 /* Imagen */

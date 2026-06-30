@@ -62,7 +62,7 @@ export const confirmarPassword = (password, confirmPassword) => {
 //Objeto Administrador
 export const credencialesAdministrador = {
     correo:'admin@correo.cl',
-    password: 'Adm1n.#1str4d0r',
+    password: 'Adm1n1str4d0r##..',
     rol: 'administrador'
 };
 
