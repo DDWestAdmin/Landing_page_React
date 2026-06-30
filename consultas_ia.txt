@@ -1,0 +1,5 @@
+Copilot 365
+en base a los requerimientos pedidos, 
+examina el archivo comprimido y dame un listado de los requerimientos adicionales a añadir, 
+incluyendo correcciones y código adicional
+
